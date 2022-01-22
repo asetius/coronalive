@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Country>
+
+@{
+    var rnd = new Random();
+    var c = Model?.OrderBy(r => rnd.Next()).First();
+}
+
+@{
+    <div>
+        <h3>@c?.CountryName</h3>
+        <ul>
+            <li>
+                Количество заболевших на сегодня: @c?.TotalCases
+            </li>
+            <li>
+                Количество выздоровевших на сегодня: @c?.TotalRecovered
+            </li>
+        </ul>
+    </div>
+}
